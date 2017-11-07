@@ -1,0 +1,6 @@
+com\sap\document\sap\soap\functions\mc_style\ZSIBPAIRPIN.class
+com\sap\document\sap\soap\functions\mc_style\package-info.class
+com\sap\document\sap\soap\functions\mc_style\ZfmShanAirpinSoapServHead.class
+com\sap\document\sap\soap\functions\mc_style\ZSIBPAIRPIN_Service.class
+com\sap\document\sap\soap\functions\mc_style\ObjectFactory.class
+com\sap\document\sap\soap\functions\mc_style\ZfmShanAirpinSoapServHeadResponse.class

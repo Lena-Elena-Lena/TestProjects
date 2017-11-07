@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.vtb24.ru/IT/IVR/IVRTypes/v1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.vtb24.ru/IT/IVR/IVRTypes/v1.0" targetNamespace="http://www.vtb24.ru/IT/IVR/IVRTypes/v1.0">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.vtb24.ru/IT/IVR/IVRTypes/v1.0">
+    <xs:element name="SetCreditApplicationInfoRequest">
+        <xs:annotation>
+            <xs:documentation>Запрос</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+
+                <!-- ANI -->
+                <xs:element maxOccurs="1" minOccurs="1" name="Ani">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Номер телефона primary_ani, как приходит в приложение предоставления заявки на кредит
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="20"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- ApplicationCity -->
+                <xs:element maxOccurs="1" minOccurs="1" name="ApplicationCity">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Город обращения в произвольной форме (для распознавания оператором)
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- SourceOfInformation -->
+                <xs:element maxOccurs="1" minOccurs="1" name="SourceOfInformation">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Источник информации о кредитовании в Банке (для распознавания оператором)
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="200"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- IsRFCitizen -->
+                <xs:element maxOccurs="1" minOccurs="1" name="IsRFCitizen">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Гражданство РФ? Да, Нет
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- RegistrationInfo -->
+                <xs:element maxOccurs="1" minOccurs="1" name="RegistrationInfo">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Город или регион постоянной регистрации в произвольной форме (для распознавания оператором)
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- BirthYear -->
+                <xs:element maxOccurs="1" minOccurs="1" name="BirthYear">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Год рождения, 4 цифры
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int"/>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- OccupationRegistration -->
+                <xs:element maxOccurs="1" minOccurs="1" name="OccupationRegistration">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Оформление трудоустройства: Трудовая книжка; Трудовой договор; Иное (для распознавания
+                            оператором)
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- IncomeConfirmation -->
+                <xs:element maxOccurs="1" minOccurs="1" name="IncomeConfirmation">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Cпособ подтверждения дохода: Справка 2 НДФЛ; Справка по форме Банка; Зарплатная карта; Иное
+                            (для распознавания оператором)
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- IsTotalEmploymentOverOneYear -->
+                <xs:element maxOccurs="1" minOccurs="1" name="IsTotalEmploymentOverOneYear">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Общий трудовой стаж более одного года? Да, Нет
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- IsCurrentlyEmployedOverHalfYear -->
+                <xs:element maxOccurs="1" minOccurs="1" name="IsCurrentlyEmployedOverHalfYear">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Работает ли более полугода на текущем месте? Да, Нет
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- HasNegativeCreditHistory -->
+                <xs:element maxOccurs="1" minOccurs="1" name="HasNegativeCreditHistory">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Имеет ли отрицательную кредитную историю? Да, Нет
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- MonthlySalary -->
+                <xs:element maxOccurs="1" minOccurs="1" name="MonthlySalary">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Ежемесячный доход в рублях. 0 если отсутствует.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer"/>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- CreditPeriod -->
+                <xs:element maxOccurs="1" minOccurs="1" name="CreditPeriod">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Срок кредита в произвольной форме (для распознавания оператором)
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- CreditSum -->
+                <xs:element maxOccurs="1" minOccurs="1" name="CreditSum">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Сумма кредита в рублях.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer"/>
+                    </xs:simpleType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SetCreditApplicationInfoResponse">
+        <xs:annotation>
+            <xs:documentation>Результат исполнения запроса</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="1" minOccurs="1" name="ErrorCode">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Код ошибки:
+                            0 - Запрос отработал без ошибок.
+                            1 - Непредсказуемая ошибка на этапе исполнения
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int"/>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SetCreditApplicationInfoResponse">
+    <wsdl:part element="tns:SetCreditApplicationInfoResponse" name="SetCreditApplicationInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetCreditApplicationInfoRequest">
+    <wsdl:part element="tns:SetCreditApplicationInfoRequest" name="SetCreditApplicationInfoRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SetCreditApplicationInfoPort">
+    <wsdl:operation name="SetCreditApplicationInfo">
+      <wsdl:input message="tns:SetCreditApplicationInfoRequest" name="SetCreditApplicationInfoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:SetCreditApplicationInfoResponse" name="SetCreditApplicationInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SetCreditApplicationInfoPortSoap11" type="tns:SetCreditApplicationInfoPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SetCreditApplicationInfo">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SetCreditApplicationInfoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetCreditApplicationInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SetCreditApplicationInfoPortService">
+    <wsdl:port binding="tns:SetCreditApplicationInfoPortSoap11" name="SetCreditApplicationInfoPortSoap11">
+      <soap:address location="http://localhost:8080/Ivr3/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
